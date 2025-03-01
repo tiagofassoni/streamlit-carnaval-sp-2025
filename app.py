@@ -106,7 +106,7 @@ filtered_df = df.copy()
 if selected_date != 'Todos os dias':
     filtered_df = filtered_df[filtered_df['date'] == selected_date]
 if name_search:
-    filtered_df = filtered_df[filtered_df['name'].str.contains(search, case=False)]
+    filtered_df = filtered_df[filtered_df['name'].str.contains(name_search, case=False)]
 
 # Display the table
 selected_indices = st.dataframe(
