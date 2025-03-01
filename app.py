@@ -3,7 +3,10 @@ import json
 import pandas as pd
 from datetime import datetime
 
-st.set_page_config(page_title="Busca Blocos Carnaval SP 2025")
+st.set_page_config(
+    page_title='Busca Blocos Carnaval SP 2025',
+    page_icon='🎉', # This is an emoji shortcode. Could be a URL too.
+)
 
 @st.cache_data
 def load_data():
@@ -32,7 +35,7 @@ def load_data():
     return pd.DataFrame(blocks).sort_values(by='name')
 
 # App title
-st.title('Busca Blocos do Carnaval de São Paulo 2025')
+st.header('Busca Blocos do Carnaval de São Paulo 2025')
 
 st.write('''
     O site oficial do carnaval de São Paulo não tem busca muito intuitiva, então obviamente fiz engenharia reversa do site oficial para pegar as informações brutas e fiquei até de madrugada fazendo um sitezinho para buscar os blocos. [O código está disponível no github](https://github.com/tiagofassoni/streamlit-carnaval-sp-2025).
