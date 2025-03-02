@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import pandas as pd
 from datetime import datetime
+import pytz
 
 st.set_page_config(
     page_title='Busca Blocos Carnaval SP 2025',
@@ -95,7 +96,7 @@ def format_func(date):
 
 # Date filter
 available_dates = ['Todos os dias'] + sorted(df['date'].unique())
-default_date = datetime.now().strftime('%Y-%m-%d')
+default_date = datetime.now(pytz.timezone('America/Sao_Paulo')).strftime('%Y-%m-%d')
 default_index = available_dates.index(default_date) if default_date in available_dates else 0
 selected_date = st.selectbox('Selecione a data', available_dates, format_func=format_func, index=default_index)
 # Search box
